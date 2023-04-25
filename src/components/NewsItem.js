@@ -5,7 +5,7 @@ export class NewsItem extends Component {
     let { title, description, ImageUrl, newsUrl } = this.props;
     return (
       <div className="my-3">
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card">
           <img
             src={
               ImageUrl
@@ -22,7 +22,7 @@ export class NewsItem extends Component {
               rel="noreferrer"
               href={newsUrl}
               target="_blank"
-              className="btn btn-sm btn-primary"
+              className="btn btn-sm btn-dark"
             >
               Read More
             </a>
