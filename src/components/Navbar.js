@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export class Navbar extends Component {
+  settingCategory = (category) => {
+    debugger;
+    this.props.setNewsCategory(category);
+  };
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
+            <a className="navbar-brand" href="/">
               NewsMonkey
-            </Link>
+            </a>
             <button
               className="navbar-toggler"
               type="button"
@@ -27,39 +31,81 @@ export class Navbar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("general");
+                    }}
+                    // href="/"
+                  >
                     Home
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/business">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("business");
+                    }}
+                    // href="/business"
+                  >
                     Business
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/entertainment">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("entertainment");
+                    }}
+                    // href="/entertainment"
+                  >
                     Entertainment
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/health">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("health");
+                    }}
+                    // href="/health"
+                  >
                     Health
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/science">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("science");
+                    }}
+                    // href="/science"
+                  >
                     Science
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/sports">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("sports");
+                    }}
+                    // href="/sports"
+                  >
                     Sports
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/technology">
+                  <button
+                    className="nav-link"
+                    onClick={() => {
+                      this.settingCategory("technology");
+                    }}
+                    // href="/technology"
+                  >
                     Technology
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
