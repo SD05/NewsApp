@@ -1,41 +1,29 @@
 import "./App.css";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
-export default class App extends Component {
-  pageSize = 9;
-  apiKey = process.env.REACT_APP_NEWS_API_KEY;
-  constructor() {
-    super();
-    this.state = {
-      progress: 0,
-      newsCategory: "general",
-    };
-  }
-  setProgress = (progress) => {
-    this.setState({ progress: progress });
-  };
-  setNewsCategory = (category) => {
-    this.setState({ newsCategory: category });
-  };
+const App = () => {
+  const pageSize = 9;
+  const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+  const [progress, setProgress] = useState(0);
+  const [newsCategory, setNewsCategory] = useState("general");
 
-  render() {
-    return (
-      <div>
-        {/* <BrowserRouter> */}
-        <Navbar setNewsCategory={this.setNewsCategory} />
-        <LoadingBar color="#f11946" height={3} progress={this.state.progress} />
-        <News
-          setProgress={this.setProgress}
-          apiKey={this.apiKey}
-          pageSize={this.pageSize}
-          country="in"
-          category={this.state.newsCategory}
-        />
-        {/* <Routes>
+  return (
+    <div>
+      {/* <BrowserRouter> */}
+      <Navbar setNewsCategory={setNewsCategory} />
+      <LoadingBar color="#f11946" height={3} progress={progress} />
+      <News
+        setProgress={setProgress}
+        apiKey={apiKey}
+        pageSize={pageSize}
+        country="in"
+        category={newsCategory}
+      />
+      {/* <Routes>
             <Route
               path="/"
               element={
@@ -48,7 +36,7 @@ export default class App extends Component {
                 />
               }
             /> */}
-        {/* <Route
+      {/* <Route
               path="/business"
               keys="business"
               element={
@@ -126,9 +114,10 @@ export default class App extends Component {
                 />
               }
             /> */}
-        {/* </Routes>
+      {/* </Routes>
         </BrowserRouter> */}
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default App;
